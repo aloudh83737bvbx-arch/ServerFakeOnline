@@ -48,8 +48,66 @@ text
 ТвойСервер ┃ 15/20
 – число игроков плавно колеблется, создавая видимость активности.
 
-## 📄 License
-This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
+## 📄 Лицензия
+Данный проект распространяется под лицензией GNU GPLv3 с дополнительным запретом на имперсонацию автора. Подробнее см. [LICENSE](LICENSE).
 
 
 
+# FakeOnline – Dynamic Fake Player Count Plugin for Paper
+
+## 📌 What does the plugin do?
+The **FakeOnline** plugin creates the illusion of an active server: the Minecraft server list shows a constantly changing player count (fluctuating up and down) – as if real players are joining and leaving all the time.  
+You can also change the maximum slots displayed in the server list.
+
+---
+
+## 🧩 Requirements
+- **Server software:** **Paper** (or its forks: Purpur, Pufferfish, Tuinity, etc.) version **1.13+**.
+- For versions **1.9.4 – 1.12.2** the plugin may work, but full compatibility is **not guaranteed** (see below).
+- **Java 8** or higher.
+
+---
+
+## 🗂️ Supported server versions
+
+| Minecraft version | FakeOnline support | Explanation |
+|------------------|-------------------|-------------|
+| **1.13 – 1.21.4+** | ✅ Full support | Uses the Paper API with `PaperServerListPingEvent`, everything works perfectly. |
+| **1.9.4 – 1.12.2** | ⚠️ Limited | Paper existed for these versions, but the event may have a different name or behavior. Full compatibility hasn't been tested. *Slots can always be changed; online count – maybe.* |
+| **1.8.8 and below** | ❌ Not working | The necessary API to spoof the player count is missing. Slots are modified, but online is not. Plugin will not load or will not function. |
+| **Pure Spigot (any version)** | ❌ Online spoofing not possible | Without Paper it is impossible to intercept the exact ping event with player count. Max slots can be changed, but the fake online count will not be added. The plugin will show a warning in the console. |
+
+---
+
+### 📝 Why is Paper required?
+The `PaperServerListPingEvent` provides `getNumPlayers()` and `setNumPlayers(int)` methods that are missing from the standard Spigot API. These methods allow modifying the displayed online count. On pure Spigot this is impossible without external libraries (like ProtocolLib).
+
+---
+
+## 📁 Configuration (`plugins/FakeOnline/config.yml`)
+fakeOnline:
+  count: 7               # Base (average) number of fake players
+  slots: 20              # Displayed slot count (0 = don't change)
+  min-fake: 3            # Minimum fake count
+  max-fake: 12           # Maximum fake count
+  update-interval: 5     # Interval between online count changes (in seconds)
+After editing the config, restart the server or reload the plugin with /plugman reload (requires PlugManX).
+
+🚀 Installation
+Download the FakeOnline.jar file.
+
+Place it in the plugins folder of your server (must be Paper or a fork).
+
+Start or restart the server.
+
+If needed, adjust config.yml in the plugins/FakeOnline folder.
+
+💡 In-game example
+In the server list you will see something like:
+
+text
+YourServer ┃ 12/20
+YourServer ┃ 16/20
+YourServer ┃ 7/20
+YourServer ┃ 15/20
+The player count smoothly fluctuates, creating the appearance of real activity.
