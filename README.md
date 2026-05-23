@@ -47,3 +47,9 @@ text
 ТвойСервер ┃ 7/20
 ТвойСервер ┃ 15/20
 – число игроков плавно колеблется, создавая видимость активности.
+
+## 📄 License
+This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
+
+
+
