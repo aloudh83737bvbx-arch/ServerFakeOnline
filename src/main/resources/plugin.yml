@@ -1,0 +1,6 @@
+name: FakeOnline
+version: 1.0.0
+main: saturn.fakeonline.Main
+api-version: "1.13"
+description: Динамический фейковый онлайн для Paper серверов
+author: Saturn
