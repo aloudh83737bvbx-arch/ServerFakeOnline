@@ -1,3 +1,5 @@
+[![Velocity](https://img.shields.io/badge/Velocity-3.1.1+-blue)](https://velocitypowered.com/)
+[![License](https://img.shields.io/badge/License-GPLv3--impersonation--restriction-orange)](LICENSE)
 # FakeOnline – Плагин динамического фейкового онлайна для Paper
 📌 Что делает плагин?
 Плагин FakeOnline создаёт иллюзию живого сервера: в списке серверов Minecraft отображается не статичное число игроков, а постоянно меняющееся (то больше, то меньше) – как будто на сервер постоянно заходят и выходят реальные люди.
